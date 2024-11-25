@@ -1,0 +1,22 @@
+for the Tech_stack used in ft_transcendence:
+     * Frontend :
+        - REACTJS
+        - css 
+        - axios
+     * backend  :
+        - Django rest Framework
+     * database : 
+        - relational data base postgreSQL
+        - redis
+     * devops :
+        - usage of two Stacks :
+           -> Logstash
+           -> Elastik Search
+           -> grafana
+        - the second stack is :
+           -> premeuthus
+           -> grafana
+        * development tools :
+           -> git/github
+           -> docker/ docker-compose
+           -> postman

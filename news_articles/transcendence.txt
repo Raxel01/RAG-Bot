@@ -1,0 +1,15 @@
+My ft_transcendence Team Members are :
+        Mohamed habib allah
+        me : abdelali iat talb know as canis Lupus
+        badr : bel-kala
+        youns : youlhafi
+        AFATIR
+project part that abdelali ait talb or canis lupus handled is "
+  - Frontend and backend : full stack
+   * real time chat application
+   * create an RAG bot
+   * after that creating containarisation for the projects  
+mohamed habib allah : handled the game part where user are able to play ping pong game
+
+
+

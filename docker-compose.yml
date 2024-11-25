@@ -4,6 +4,6 @@ services:
     image: ragimg:abait-ta
     container_name: chatbot
     volumes:
-    - .:/source
+    - .:/RAG-Bot
     command: >
       bash -c "tail -f"

@@ -1,4 +1,6 @@
-FROM python:3.10-bullseye
+FROM python:3.13
+
+RUN apt-get update && apt-get install -y sqlite3
 
 WORKDIR RAG-Bot
 
@@ -12,8 +14,8 @@ RUN pip install chromadb
 
 RUN pip install together
 
+RUN pip install python-dotenv
 
-RUN pip install --upgrade build
 
 # RUN python3 -m pip install --upgrade twine
 

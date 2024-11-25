@@ -6,7 +6,14 @@ Key Technologies used Here are :
  * python : version-python:3.10-bullseye
  * docker and Docker-compose to avoid dependencies problems to be tested on any Device
  * Together ai and  model="meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
-Usage : 
+        you can get a free acces by visiting https://api.together.ai/signin and create a new account
+Usage :
      Makefile : 
                Use [make ] to Create your chatbot container
                Use [make fclean] to cle an all : all = [images-volumes-container]
+Implementation Guide for beginners like me :
+   * get your together Ai api key  First
+   * get Togetherai=api=key fron your .env
+   * Load Your documents only .txt and store them on a dict
+     key,value articleId : articleContent 
+               
