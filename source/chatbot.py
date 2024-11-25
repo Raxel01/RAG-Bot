@@ -54,6 +54,9 @@ class GlobalData:
         EmbeddingQuery = self.queryToEmbedding(Query)
         context = self.collection.query(query_embeddings=EmbeddingQuery, n_results=n_results)
         return context.get('documents')[0]
+    def insert_to_history(self, single_message):
+        self.Conversation.append(single_message)
+        
     def generate_response(self, question, related_articles):
         context = "\n".join(related_articles)
         constumised_prompt = (
@@ -66,14 +69,8 @@ class GlobalData:
 
         )
         
-        self.Conversation.append({
-                "role": "system",
-                "content": constumised_prompt,
-        })                
-        self.Conversation.append({
-                "role": "user",
-                "content": question,
-        })
+        self.insert_to_history({ "role": "system", "content": constumised_prompt })                
+        self.insert_to_history({ "role": "user", "content": question, })
         chat_phase = self.TogetherClient.chat.completions.create(
             model="meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
             messages=self.Conversation  
