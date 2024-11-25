@@ -54,6 +54,7 @@ class GlobalData:
         EmbeddingQuery = self.queryToEmbedding(Query)
         context = self.collection.query(query_embeddings=EmbeddingQuery, n_results=n_results)
         return context.get('documents')[0]
+
     def insert_to_history(self, single_message):
         self.Conversation.append(single_message)
         
