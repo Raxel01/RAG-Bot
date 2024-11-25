@@ -1,0 +1,9 @@
+services:
+  python:
+    build: .
+    image: ragimg:abait-ta
+    container_name: chatbot
+    volumes:
+    - .:/source
+    command: >
+      bash -c "tail -f"
