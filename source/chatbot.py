@@ -49,7 +49,7 @@ class GlobalData:
             self.collection.upsert(
                 ids=[singleArticle.get('id')],
                 documents=[singleArticle.get("text")], embeddings=[singleArticle.get('embedding')]
-            )
+            ) 
     def query_context(self, Query, n_results):
         EmbeddingQuery = self.queryToEmbedding(Query)
         context = self.collection.query(query_embeddings=EmbeddingQuery, n_results=n_results)
