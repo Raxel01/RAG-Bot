@@ -76,6 +76,8 @@ class GlobalData:
             model="meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
             messages=self.Conversation  
         )
+
+
         response = chat_phase.choices[0].message.content
         self.Conversation.append({"role" : "system", "content" : response})
         return response
@@ -91,8 +93,8 @@ def main():
     query_response = globalDataHolder.generate_response(Query, related_articles)
     print(query_response)
     
-    
-    
+# semantic similarity by keyword matching
+# poor integration and generation
 if __name__=='__main__':
     try:
         main()

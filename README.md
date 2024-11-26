@@ -12,8 +12,27 @@ Usage :
                Use [make ] to Create your chatbot container
                Use [make fclean] to cle an all : all = [images-volumes-container]
 Implementation Guide for beginners like me :
+<h1> RETREIVING PHASE : </h1>
    * get your together Ai api key  First
    * get Togetherai=api=key fron your .env
    * Load Your documents only .txt and store them on a dict
-     key,value articleId : articleContent 
+     key,value articleId : articleContent
+   * use some model to create embedding from your own readed articles and store them :
+       either in new dictionary or the same dictionary that contain the text readed from articles so structur will be
+    [{
+      "id"         : "article-01",
+      "text"       : ${Readed content from articles},
+      "Embeddings" : use model o build embeddings
+    }, {next}, {next}, ...]
+    * upsert this array of articles data to chromaDb
+    * get user Question and create emebedding from it : 
+          pay attention you should use the same model that you created your 
+          article content Embeddings , this will prevent you to have conflicts
+          - it's kind of you encrypt some data using an algorithme
+          - and you try to decrypt it using some different algorithm
+    
+  <h1> AUGMENTATION PHASE : </h1>
+      * costumise your own propmpt
+  <h1> GENERATION PHASE : </h1>
+    * make a request to the TogetherAi to create a chat pipe with him
                
