@@ -13,17 +13,20 @@ Usage :
                Use [make fclean] to cle an all : all = [images-volumes-container]
 Implementation Guide for beginners like me :
 <h1> RETREIVING PHASE : </h1>
-   * get your together Ai api key  First
-   * get Togetherai=api=key fron your .env
-   * Load Your documents only .txt and store them on a dict
-     key,value articleId : articleContent
-   * use some model to create embedding from your own readed articles and store them :
-       either in new dictionary or the same dictionary that contain the text readed from articles so structur will be
+   * get your together Ai api key  First </br>
+   * get Togetherai=api=key fron your .env </br>
+   * Load Your documents only .txt and store them on a dict </br>
+     key,value articleId : articleContent </br>
+   * use some model to create embedding from your own readed articles and store them :</br>
+       either in new dictionary or the same dictionary that contain the text readed from articles so structur will be </br>
+```python
     [{
+
       "id"         : "article-01",
       "text"       : ${Readed content from articles},
       "Embeddings" : use model o build embeddings
-    }, {next}, {next}, ...]
+    }]
+```
     * upsert this array of articles data to chromaDb
     * get user Question and create emebedding from it : 
           pay attention you should use the same model that you created your 
