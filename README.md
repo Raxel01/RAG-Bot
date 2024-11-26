@@ -51,3 +51,12 @@ self.readed_articles = [
   <h1> GENERATION PHASE : </h1>
     * make a request to the TogetherAi to create a chat pipe with him
 
+```python
+        chat_phase = self.TogetherClient.chat.completions.create(
+            model="meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
+            messages=self.Conversation  
+        )
+        response = chat_phase.choices[0].message.content
+        self.Conversation.append({"role" : "system", "content" : response})
+        return response
+```

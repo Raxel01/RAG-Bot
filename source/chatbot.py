@@ -70,16 +70,14 @@ class GlobalData:
         
         self.insert_to_history({ "role": "system", "content": constumised_prompt })                
         self.insert_to_history({ "role": "user", "content": question, })
+        
         chat_phase = self.TogetherClient.chat.completions.create(
             model="meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
             messages=self.Conversation  
         )
-
-
         response = chat_phase.choices[0].message.content
         self.Conversation.append({"role" : "system", "content" : response})
         return response
-
 
 def main():
     if len(sys.argv) != 3:
