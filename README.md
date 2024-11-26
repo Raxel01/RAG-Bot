@@ -21,17 +21,18 @@ Implementation Guide for beginners like me :
        either in new dictionary or the same dictionary that contain the text readed from articles so structur will be </br>
 ```python
     [{
-
       "id"         : "article-01",
       "text"       : ${Readed content from articles},
       "Embeddings" : use model o build embeddings
-    }]```
-    * upsert this array of articles data to chromaDb
-    * get user Question and create emebedding from it : 
-          pay attention you should use the same model that you created your 
-          article content Embeddings , this will prevent you to have conflicts
-          - it's kind of you encrypt some data using an algorithme
-          - and you try to decrypt it using some different algorithm
+    }]
+    ```
+    
+* upsert this array of articles data to chromaDb
+* get user Question and create emebedding from it : 
+  pay attention you should use the same model that you created your 
+  article content Embeddings , this will prevent you to have conflicts
+  - it's kind of you encrypt some data using an algorithme
+  - and you try to decrypt it using some different algorithm
     
   <h1> AUGMENTATION PHASE : </h1>
       * costumise your own propmpt
