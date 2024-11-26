@@ -19,8 +19,9 @@ Implementation Guide for beginners like me :
      key,value articleId : articleContent </br>
    * use some model to create embedding from your own readed articles and store them :</br>
        either in new dictionary or the same dictionary that contain the text readed from articles so structur will be </br>
-```python
-    slef.readed_articles[{
+```
+python
+   slef.readed_articles[{
       "id"         : "article-01",
       "text"       : ${Readed content from articles},
       "Embeddings" : use model o build embeddings
