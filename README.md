@@ -18,15 +18,18 @@ Implementation Guide for beginners like me :
    * Load Your documents only .txt and store them on a dict </br>
      key,value articleId : articleContent </br>
    * use some model to create embedding from your own readed articles and store them :</br>
-       either in new dictionary or the same dictionary that contain the text readed from articles so structur will be </br>
+       either in new dictionary or the same dictionary that contain the text readed from articles so structur will be
+
+```python
+self.readed_articles = [
+    {
+        "id": "article-01",
+        "text": ${Readed content from articles},  # Use quotes for strings
+        "embeddings": model.build_embeddings()...   # Proper function call
+    }
+]
 ```
-python
-   slef.readed_articles[{
-      "id"         : "article-01",
-      "text"       : ${Readed content from articles},
-      "Embeddings" : use model o build embeddings
-    }]
-```
+
 * upsert this array of articles data to chromaDb
 * get user Question and create emebedding from it : 
   pay attention you should use the same model that you created your 
@@ -36,6 +39,15 @@ python
     
   <h1> AUGMENTATION PHASE : </h1>
       * costumise your own propmpt
+```python
+        constumised_prompt = (
+            "You are an assistant for question-answering tasks. Use the following pieces of "
+            "retrieved context to answer the question. If you don't know the answer, say that you "
+            "don't know Use three sentences maximum and keep the answer concise."
+            "If you don't know the answer just say I don't know with respecteful way "
+            "\n\nContext:\n" + context + "\n\nQuestion:\n" + question
+        )
+```
   <h1> GENERATION PHASE : </h1>
     * make a request to the TogetherAi to create a chat pipe with him
-               
+

@@ -65,9 +65,7 @@ class GlobalData:
             "retrieved context to answer the question. If you don't know the answer, say that you "
             "don't know Use three sentences maximum and keep the answer concise."
             "If you don't know the answer just say I don't know with respecteful way "
-
             "\n\nContext:\n" + context + "\n\nQuestion:\n" + question
-
         )
         
         self.insert_to_history({ "role": "system", "content": constumised_prompt })                
