@@ -25,7 +25,7 @@ Implementation Guide for beginners like me :
       "id"         : "article-01",
       "text"       : ${Readed content from articles},
       "Embeddings" : use model o build embeddings
-    }] ```
+    }]```
     * upsert this array of articles data to chromaDb
     * get user Question and create emebedding from it : 
           pay attention you should use the same model that you created your 
