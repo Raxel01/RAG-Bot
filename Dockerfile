@@ -16,6 +16,10 @@ RUN pip install together
 
 RUN pip install python-dotenv
 
+RUN pip install pypdf
+
+RUN pip install langchain
+
 
 # RUN python3 -m pip install --upgrade twine
 

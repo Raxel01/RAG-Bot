@@ -11,17 +11,16 @@ load_dotenv()
 Together_API_KEY = os.getenv('TOGETHER_API_KEY')
 
 class GlobalData:
-    # global Variables
-    Conversation = list()
+    # This Variables are shared between all instance
     readed_articles = list()
-    articles_dir    = '../news_articles'
+    articles_dir    = '../news_articles' 
     chormaDbClient  =  chromadb.PersistentClient(path="../chroma_storage")
     collection_name = 'ragCollection'
     collection = chormaDbClient.get_or_create_collection(name=collection_name)
-    
+    TogetherClient = Together(api_key=Together_API_KEY)
     # Methodes
     def __init__(self) -> None:
-        self.TogetherClient = Together(api_key=Together_API_KEY)
+        self.Conversation = list()
         self.read_All_docs()
         self.create_embeddings()
         self.upsertToChromaDb()
@@ -30,6 +29,7 @@ class GlobalData:
         i = 0
         for filename in os.listdir(self.articles_dir):
             with open (os.path.join(self.articles_dir, filename)) as file:
+                print(filename)
                 if not filename.endswith('.txt'):
                     raise AssertionError('Error on File extension only .txt accepted')
                 self.readed_articles.append({'id': f'article-{i}', 'text' : file.read()})
@@ -67,6 +67,7 @@ class GlobalData:
             "If you don't know the answer just say I don't know with respecteful way "
             "\n\nContext:\n" + context + "\n\nQuestion:\n" + question
         )
+        # print('Context [', context, ']')
         
         self.insert_to_history({ "role": "system", "content": constumised_prompt })                
         self.insert_to_history({ "role": "user", "content": question, })

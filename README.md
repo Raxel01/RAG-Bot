@@ -12,7 +12,8 @@ Usage :
                Use [make ] to Create your chatbot container
                Use [make fclean] to cle an all : all = [images-volumes-container]
 Implementation Guide for beginners like me :
-<h1> RETREIVING PHASE : </h1>
+<h1> Naive RAG : </h1>
+<h2> RETREIVING PHASE : </h2>
    * get your together Ai api key  First </br>
    * get Togetherai=api=key fron your .env </br>
    * Load Your documents only .txt and store them on a dict </br>
@@ -37,7 +38,7 @@ self.readed_articles = [
   - it's kind of you encrypt some data using an algorithme
   - and you try to decrypt it using some different algorithm
     
-  <h1> AUGMENTATION PHASE : </h1>
+  <h2> AUGMENTATION PHASE : </h2>
       * costumise your own propmpt
 ```python
         constumised_prompt = (
@@ -48,7 +49,7 @@ self.readed_articles = [
             "\n\nContext:\n" + context + "\n\nQuestion:\n" + question
         )
 ```
-  <h1> GENERATION PHASE : </h1>
+  <h2> GENERATION PHASE : </h2>
     * make a request to the TogetherAi to create a chat pipe with him
 
 ```python
@@ -60,3 +61,8 @@ self.readed_articles = [
         self.Conversation.append({"role" : "system", "content" : response})
         return response
 ```
+<h1> ADVANCED RAG : </h1>
+Pre-retreival : <br>
+ Query Expansion :  
+
+post retreival :
